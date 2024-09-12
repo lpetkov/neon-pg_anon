@@ -23,6 +23,8 @@ export default async function Home() {
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Age</th>
+            <th>Hobby</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +33,8 @@ export default async function Home() {
               <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
+              <td>{user.age}</td>
+              <td>{user.hobby}</td>
             </tr>
           ))}
         </tbody>

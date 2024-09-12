@@ -1,13 +1,18 @@
-// Import Prisma Client
 import { PrismaClient } from '@prisma/client';
 
-// Initialize Prisma Client
+// Define the Prisma Client
 const prisma = new PrismaClient();
 
-// Define an async server component
+// Define the User type to match your Prisma model
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
 export default async function Home() {
-  // Fetch data from the PostgreSQL database
-  const users = await prisma.user.findMany();
+  // Fetch users from the database
+  const users: User[] = await prisma.user.findMany();
 
   return (
     <div>
@@ -23,7 +28,7 @@ export default async function Home() {
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
-              <td>{user.id}</td>
+              <td>{user.id}</td> {/* Ensure 'id' is treated as a number */}
               <td>{user.name}</td>
               <td>{user.email}</td>
             </tr>

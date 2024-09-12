@@ -1,16 +1,14 @@
+// Import Prisma Client
 import { PrismaClient } from '@prisma/client';
+
+// Initialize Prisma Client
 const prisma = new PrismaClient();
 
-export async function getServerSideProps() {
+// Define an async server component
+export default async function Home() {
+  // Fetch data from the PostgreSQL database
   const users = await prisma.user.findMany();
-  return {
-    props: {
-      users,
-    },
-  };
-}
 
-export default function Home({ users }) {
   return (
     <div>
       <h1>User List</h1>
@@ -35,4 +33,3 @@ export default function Home({ users }) {
     </div>
   );
 }
-

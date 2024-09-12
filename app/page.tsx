@@ -17,7 +17,7 @@ export default async function Home() {
   return (
     <div>
       <h1>User List</h1>
-      <table border="1">
+      <table border={1}> {/* Fix the border attribute */}
         <thead>
           <tr>
             <th>ID</th>
@@ -28,7 +28,7 @@ export default async function Home() {
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
-              <td>{user.id}</td> {/* Ensure 'id' is treated as a number */}
+              <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
             </tr>

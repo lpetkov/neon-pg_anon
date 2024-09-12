@@ -6,6 +6,8 @@ interface User {
   id: number;
   name: string;
   email: string;
+  age: number;
+  hobby: string;
 }
 
 export default async function Home() {

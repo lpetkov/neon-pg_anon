@@ -8,6 +8,8 @@ interface User {
   id: number;
   name: string;
   email: string;
+  age: number;
+  hobby: string;
 }
 
 export default async function Home() {
@@ -17,7 +19,7 @@ export default async function Home() {
   return (
     <div>
       <h1>User List</h1>
-      <table border={1}> {/* Fix the border attribute */}
+      <table border={1}> 
         <thead>
           <tr>
             <th>ID</th>

@@ -1,9 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 
-// Define the Prisma Client
 const prisma = new PrismaClient();
 
-// Define the User type to match your Prisma model
 interface User {
   id: number;
   name: string;
@@ -15,9 +13,9 @@ export default async function Home() {
   const users: User[] = await prisma.user.findMany();
 
   return (
-    <div>
-      <h1>User List</h1>
-      <table border={1}> {/* Fix the border attribute */}
+    <div className="container">
+      <div className='anon' />
+      <table border={1}> 
         <thead>
           <tr>
             <th>ID</th>

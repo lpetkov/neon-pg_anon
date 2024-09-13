@@ -1,6 +1,9 @@
-import { PrismaClient } from '@prisma/client';
+import pgp from "pg-promise";
 
-const prisma = new PrismaClient();
+const pgpInstance = pgp();
+const db = pgpInstance(process.env.DATABASE_URL ?? 'unknown');
+
+export const dynamic = 'force-dynamic';
 
 interface User {
   id: number;
@@ -12,7 +15,7 @@ interface User {
 
 export default async function Home() {
   // Fetch users from the database
-  const users: User[] = await prisma.user.findMany();
+  const users = await db.query<User[]>('SELECT * FROM "User"');
 
   return (
     <div className="container">

@@ -20,6 +20,7 @@ export default async function Home() {
   return (
     <div className="container">
       <div className='anon' />
+      <div>This is going to be anonymized</div>
       <table border={1}> 
         <thead>
           <tr>
